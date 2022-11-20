@@ -2,6 +2,7 @@
 
 public class Venue
 {
+    public int Id { get; set; }
     public string Name { get; set; }
     public string Excerpt { get; set; }
     public bool VenueClosed { get; set; }
