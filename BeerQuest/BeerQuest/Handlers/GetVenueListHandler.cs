@@ -1,4 +1,5 @@
-﻿using BeerQuest.Models;
+﻿using BeerQuest.Core.DataAccess;
+using BeerQuest.Models;
 using BeerQuest.Query;
 using MediatR;
 
@@ -6,14 +7,15 @@ namespace BeerQuest.Handlers;
 
 public class GetVenueListHandler : IRequestHandler<GetVenueListQuery, IEnumerable<Venue>>
 {
-    
-    public GetVenueListHandler()
+    private readonly IVenueRepository _repository;
+
+    public GetVenueListHandler(IVenueRepository repository)
     {
-        
+        _repository = repository;
     }
 
-    public Task<IEnumerable<Venue>> Handle(GetVenueListQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<Venue>> Handle(GetVenueListQuery request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _repository.QueryVenueList();
     }
 }

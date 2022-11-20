@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="CsvHelper" Version="30.0.1" />
         <PackageReference Include="MediatR" Version="11.1.0" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
@@ -15,6 +16,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BeerQuest.Core\BeerQuest.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\leedsbeerquest.csv" />
+      <EmbeddedResource Include="Resources\leedsbeerquest.csv" />
     </ItemGroup>
 
 </Project>

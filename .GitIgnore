@@ -74,3 +74,4 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 BeerQuest/.idea/.idea.BeerQuest
+BeerQuest/.idea/config/applicationhost.config

@@ -27,7 +27,7 @@ public class VenueController : ControllerBase
     }
     
     // api/venue/{id}
-    [HttpGet("{0}")]
+    [HttpGet("{Id}")]
     public async Task<Venue> Get(int Id)
     {
         return await _mediator.Send(new GetVenueByIdQuery(Id));
