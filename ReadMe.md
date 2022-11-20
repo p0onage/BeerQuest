@@ -14,13 +14,25 @@ API Design
 
 # Backend API Design
 
-# Running the application 
+The Backend API uses the Mediator pattern and makes use of the [MediatR](https://github.com/jbogard/MediatR) library to help decouple the commands and queries following a CQRS pattern. 
 
-TODO 
+At the moment, the InMemoryVenueRepository is using memory cache for speed but in the future we can store these results in Azure Table storage and use the decorator pattern to swap the new IVenueRepository in. By keeping the local InMemoryVenueRepository it will allow developers to run this locally for debugging purposes without the need for hosted infrastructure in Azure. 
+
+# Running the application 
 
 You can run the backend API by using the .Net CLI. First build the solution and then run the application.
 
 `dotnet build`
 `dotnet run`
+
+# What is next?
+
+1. Create the wire frame for what the list view would look like.
+2. Add private setters and validation to the domain models to catch any invalid data 
+3. Format the data returned to remove any unwanted escape characters 
+4. Add Auto Mapper profiles to map the DTO to a domain model
+5. Look at clean arcitecture and maybe have a application layer and move DataAccess to Infrastructure project 
+6. We will need to work out the radius and implement helper methods to find all venues within a certain distance 
+
 
 
