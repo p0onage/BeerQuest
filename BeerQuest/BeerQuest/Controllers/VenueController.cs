@@ -1,4 +1,5 @@
 using BeerQuest.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeerQuest.Controllers;
@@ -9,10 +10,12 @@ public class VenueController : ControllerBase
 {
 
     private readonly ILogger<VenueController> _logger;
+    private readonly IMediator _mediator;
 
-    public VenueController(ILogger<VenueController> logger)
+    public VenueController(ILogger<VenueController> logger, IMediator mediator)
     {
         _logger = logger;
+        _mediator = mediator;
     }
 
     [HttpGet(Name = "GetAllVenues")]
