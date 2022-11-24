@@ -28,7 +28,7 @@ public class VenueControllerTests
             .Returns(Task.FromResult(Venues.MockVenues));
         var controller = new VenueController(logger, mediator.Object);
         //When
-        var result =  await controller.Get();
+        var result =  await controller.Get(new GetVenueListQuery());
         //Then
         result.Count().ShouldBeGreaterThan(1);
     }

@@ -16,6 +16,12 @@ public class GetVenueListHandler : IRequestHandler<GetVenueListQuery, IEnumerabl
 
     public async Task<IEnumerable<Venue>> Handle(GetVenueListQuery request, CancellationToken cancellationToken)
     {
-        return await _repository.QueryVenueList();
+        var allVenues = await _repository.QueryVenueList();
+        if (request.MaxResults != default)
+        {
+            allVenues = allVenues.Take(request.MaxResults).ToList();
+        }
+
+        return allVenues;
     }
 }

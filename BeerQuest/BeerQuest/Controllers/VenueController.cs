@@ -26,6 +26,13 @@ public class VenueController : ControllerBase
         return await _mediator.Send(new GetVenueListQuery());
     }
     
+    // api/venue
+    [HttpPost(Name = "GetAllVenues")]
+    public async Task<IEnumerable<Venue>> Post(GetVenueListQuery getVenueListQuery)
+    {
+        return await _mediator.Send(getVenueListQuery);
+    }
+    
     // api/venue/{id}
     [HttpGet("{Id}")]
     public async Task<Venue> Get(int Id)
